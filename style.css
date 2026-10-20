@@ -13,19 +13,19 @@ body {
     background-color: var(--primary-bg-color);
 }
 
-header, footer {
+body > header, body > footer {
     background-color: var(--secondary-bg-color);
     padding: 20px 140px;
 }
 
 /* #region header*/
-header > div {
+body > header > div {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-header p {
+body > header p {
     font-size: 32px;
     font-weight: 800;
 }
@@ -68,7 +68,7 @@ button > img {
 /* #endregion */
 
 /* #region footer*/
-footer {
+body > footer {
     border-radius: 40% 40% 0px 0px;
 
     display: flex;
@@ -77,14 +77,14 @@ footer {
     gap: 16px;
 }
 
-footer > div {
+body > footer > div {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: clamp(24px, 2vw, 32px);
 }
 
-footer > p {
+body > footer > p {
     font-size: clamp(16px, 2vw, 18px);
     color: rgba(153, 172, 179, 1);
 }
