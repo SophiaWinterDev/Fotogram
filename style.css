@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Figtree";
+    color: white;
+}
+
+/* #region header*/
+header {
+    background-color: var(--secondary-bg-color);
+    padding: 20px 140px;
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header p {
+    font-size: clamp(16px, 4vw, 32px);
+    font-weight: 800;
+}
+/* #endregion */
+
+/* #region main*/
+
+/* #endregion */
+
+/* #region footer*/
+
+/* #endregion */
