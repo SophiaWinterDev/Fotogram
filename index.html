@@ -1,33 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotogram</title>
-    <link rel="shortcut icon" href="./assets/icon/fotogram-logo.svg" type="image/x-icon">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fotogram</title>
+        <link
+            rel="shortcut icon"
+            href="./assets/icon/fotogram-logo.svg"
+            type="image/x-icon"
+        />
 
-    <script src="./script.js"></script>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./fonts.css">
-    <link rel="stylesheet" href="./variables.css">
-</head>
-<body>
-    <header>
-        <div>
-            <img src="./assets/icon/fotogram-logo.svg" alt="Fotogram Logo">
-            <p>Fotogram</p>
-        </div>
-    </header>
-    <main>
-        <h1>My personal photo album</h1>
-        <div></div>
-    </main>
-    <footer>
-        <div>
-            <img src="./assets/icon/fotogram-logo.svg" alt="Fotogram Logo">
-            <p>Fotogram</p>
-        </div>
-        <p>© 2026 Fotogram</p>
-    </footer>
-</body>
+        <script src="./script.js"></script>
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" href="./fonts.css" />
+        <link rel="stylesheet" href="./variables.css" />
+    </head>
+    <body>
+        <header>
+            <div>
+                <img
+                    src="./assets/icon/fotogram-logo.svg"
+                    alt="Fotogram Logo"
+                />
+                <p>Fotogram</p>
+            </div>
+        </header>
+        <main>
+            <h1>My personal photo album</h1>
+            <ul class="gallery-wrapper">
+                <li>
+                    <button>
+                        <img src="./assets/img/aurora.jpg" alt="Aurora Image" />
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <img src="./assets/img/fog.jpg" alt="Fog Image" />
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <img src="./assets/img/frost.jpg" alt="Frost Image" />
+                    </button>
+                </li>
+            </ul>
+        </main>
+        <footer>
+            <div>
+                <img
+                    src="./assets/icon/fotogram-logo.svg"
+                    alt="Fotogram Logo"
+                />
+                <p>Fotogram</p>
+            </div>
+            <p>© 2026 Fotogram</p>
+        </footer>
+    </body>
 </html>
