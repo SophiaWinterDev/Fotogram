@@ -10,12 +10,12 @@
             type="image/x-icon"
         />
 
-        <script src="./script.js"></script>
+        <script defer src="./script.js"></script>
         <link rel="stylesheet" href="./style.css" />
         <link rel="stylesheet" href="./fonts.css" />
         <link rel="stylesheet" href="./variables.css" />
     </head>
-    <body>
+    <body onload="init()">
         <header>
             <div>
                 <img
@@ -27,40 +27,31 @@
         </header>
         <main>
             <h1>My personal photo album</h1>
-            <ul class="gallery-wrapper">
-                <li>
-                    <button>
-                        <img src="./assets/img/aurora.jpg" alt="Aurora Image" />
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        <img src="./assets/img/fog.jpg" alt="Fog Image" />
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        <img src="./assets/img/frost.jpg" alt="Frost Image" />
-                    </button>
-                </li>
-            </ul>
-            <dialog>
+            <ul id="galleryWrapper" class="gallery-wrapper"></ul>
+            <dialog id="galleryDialog">
                 <header>
-                    <p></p>
+                    <p id="dialogHeadline"></p>
                     <button>
-                        <img src="./assets/icon/close-icon.svg" alt="Close Icon">
+                        <img
+                            src="./assets/icon/close-icon.svg"
+                            alt="Close Icon"
+                        />
                     </button>
                 </header>
-                <section>
-                    <img src="" alt="">
-                </section>
+                <section id="imageSection"></section>
                 <footer>
                     <button>
-                        <img src="./assets/icon/arrow-icon.svg" alt="Arrow Left">
+                        <img
+                            src="./assets/icon/arrow-icon.svg"
+                            alt="Arrow Left"
+                        />
                     </button>
-                    <p></p>
+                    <p id="dialogPagenumber"></p>
                     <button>
-                        <img src="./assets/icon/arrow-icon.svg" alt="Arrow Right">
+                        <img
+                            src="./assets/icon/arrow-icon.svg"
+                            alt="Arrow Right"
+                        />
                     </button>
                 </footer>
             </dialog>

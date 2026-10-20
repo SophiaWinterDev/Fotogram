@@ -13,7 +13,8 @@ body {
     background-color: var(--primary-bg-color);
 }
 
-body > header, body > footer {
+body > header,
+body > footer {
     background-color: var(--secondary-bg-color);
     padding: 20px 140px;
 }
@@ -51,6 +52,7 @@ h1 {
     list-style: none;
     padding-inline-start: 0;
     margin: 50px;
+    flex-wrap: wrap;
 }
 
 button {
@@ -64,6 +66,11 @@ button > img {
     height: 100%;
     object-fit: cover;
     border-radius: 16px;
+}
+
+dialog {
+    background-color: var(--primary-bg-color);
+    padding: 56px 64px;
 }
 /* #endregion */
 
