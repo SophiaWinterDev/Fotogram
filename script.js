@@ -65,6 +65,8 @@ function renderGallery() {
 }
 
 function openDialog(index) {
+    NEXT_BUTTON_REF.classList.remove("inactive-button");
+    PREVIOUS_BUTTON_REF.classList.remove("inactive-button");
     currentIndex = index;
     DIALOG_HEADLINE_REF.innerText = getTextForDialogHeadline(index);
     IMAGE_SECTION_REF.innerHTML = getHTMLForImageSection(index);
