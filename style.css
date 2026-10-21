@@ -2,7 +2,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Figtree";
-    color: white;
 }
 
 body {
@@ -10,12 +9,12 @@ body {
     flex-direction: column;
     min-height: 100dvh;
 
-    background-color: var(--primary-bg-color);
+    background-color: var(--primary-color);
 }
 
 body > header,
 body > footer {
-    background-color: var(--secondary-bg-color);
+    background-color: var(--secondary-color);
     padding: 20px 140px;
 }
 
@@ -29,6 +28,7 @@ body > header > div {
 body > header p {
     font-size: 32px;
     font-weight: 800;
+    color: var(--primary-color);
 }
 /* #endregion */
 
@@ -46,6 +46,7 @@ main {
 h1 {
     font-size: clamp(40px, 2vw, 56px);
     font-weight: 800;
+    color: var(--secondary-color);
     text-align: center;
 }
 
@@ -70,15 +71,15 @@ li > button > img {
     height: 100%;
     object-fit: cover;
     border-radius: 16px;
-    border: solid 2px rgba(18, 70, 88, 1);
+    border: solid 2px var(--secondary-color);
 }
 
 li > button > img:hover {
-    border-color: rgba(107, 193, 225, 1);
+    border-color: #a883f8;
 }
 
 dialog {
-    background-color: var(--primary-bg-color);
+    background-color: var(--secondary-color);
     padding: 56px 64px;
     margin: auto;
     border: none;
@@ -105,6 +106,7 @@ dialog > header {
 dialog > header > p {
     font-size: clamp(16px, 2vw, 24px);
     font-weight: 700;
+    color: var(--primary-color);
 }
 
 .close-button,
@@ -115,11 +117,11 @@ dialog > header > p {
 }
 
 .close-button-image:hover {
-    background-color: rgba(18, 70, 88, 1);
+    background-color: rgb(115, 90, 170, 0.5);
 }
 
 .close-button-image:active {
-    background-color: rgba(13, 50, 64, 1);
+    background-color: rgb(115, 90, 170, 0.8);
 }
 
 .image-section > img {
@@ -134,6 +136,8 @@ dialog > footer {
     align-items: center;
     gap: 50px;
     padding-top: 56px;
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 .previous-button,
@@ -146,7 +150,7 @@ dialog > footer {
 
 .previous-button-image,
 .next-button-image {
-    background-color: rgba(253, 91, 79, 0.1);
+    background-color: rgb(115, 90, 170, 0.2);
     border-radius: 50%;
     padding: 20px;
 }
@@ -157,7 +161,7 @@ dialog > footer {
 
 .previous-button-image:hover,
 .next-button-image:hover {
-    background-color: rgba(253, 91, 79, 0.2);
+    background-color: rgb(115, 90, 170, 0.5);
 }
 
 .inactive-button {
@@ -185,11 +189,12 @@ body > footer > div {
     align-items: center;
     gap: 10px;
     font-size: clamp(24px, 2vw, 32px);
+    color: var(--primary-color);
 }
 
 body > footer > p {
     font-size: clamp(16px, 2vw, 18px);
-    color: rgba(153, 172, 179, 1);
+    color: rgba(115, 90, 170, 0.8);
 }
 /* #endregion */
 
