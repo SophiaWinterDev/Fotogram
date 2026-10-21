@@ -1,3 +1,4 @@
+// #region global variables
 const IMAGES = [
     {
         src: "aurora.jpg",
@@ -52,7 +53,11 @@ const DIALOG_PAGENUMBER_REF = document.getElementById("dialogPagenumber");
 const IMAGE_SECTION_REF = document.getElementById("imageSection");
 const PREVIOUS_BUTTON_REF = document.getElementById("previousButton");
 const NEXT_BUTTON_REF = document.getElementById("nextButton");
+
+const FIRST_IMAGE_INDEX = 0;
+const LAST_IMAGE_INDEX = IMAGES.length - 1;
 let currentIndex = 0;
+// #endregion
 
 function init() {
     renderGallery();
@@ -80,28 +85,28 @@ function closeDialog() {
 
 function showPreviousImage() {
     NEXT_BUTTON_REF.classList.remove("inactive-button");
-    if (currentIndex > 0) {
+    if (currentIndex > FIRST_IMAGE_INDEX) {
         currentIndex -= 1;
         DIALOG_HEADLINE_REF.innerText = getTextForDialogHeadline(currentIndex);
         IMAGE_SECTION_REF.innerHTML = getHTMLForImageSection(currentIndex);
         DIALOG_PAGENUMBER_REF.innerText =
             getTextForDialogPagenumber(currentIndex);
     }
-    if (currentIndex <= 0) {
+    if (currentIndex <= FIRST_IMAGE_INDEX) {
         PREVIOUS_BUTTON_REF.classList.add("inactive-button");
     }
 }
 
 function showNextImage() {
     PREVIOUS_BUTTON_REF.classList.remove("inactive-button");
-    if (currentIndex < 10) {
+    if (currentIndex < LAST_IMAGE_INDEX) {
         currentIndex += 1;
         DIALOG_HEADLINE_REF.innerText = getTextForDialogHeadline(currentIndex);
         IMAGE_SECTION_REF.innerHTML = getHTMLForImageSection(currentIndex);
         DIALOG_PAGENUMBER_REF.innerText =
             getTextForDialogPagenumber(currentIndex);
     }
-    if (currentIndex >= 10) {
+    if (currentIndex >= LAST_IMAGE_INDEX) {
         NEXT_BUTTON_REF.classList.add("inactive-button");
     }
 }
@@ -129,6 +134,6 @@ function getHTMLForImageSection(index) {
 }
 
 function getTextForDialogPagenumber(index) {
-    return `${index + 1}/11`;
+    return `${index + 1}/${IMAGES.length}`;
 }
 // #endregion

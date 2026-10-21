@@ -17,21 +17,20 @@
     </head>
     <body onload="init()">
         <header>
-            <div>
-                <img
-                    src="./assets/icon/fotogram-logo.svg"
-                    alt="Fotogram Logo"
-                />
-                <p>Fotogram</p>
-            </div>
+            <img src="./assets/icon/fotogram-logo.svg" alt="Fotogram Logo" />
+            <p>Fotogram</p>
         </header>
         <main>
             <h1>My personal photo album</h1>
             <ul id="galleryWrapper" class="gallery-wrapper"></ul>
             <dialog id="galleryDialog" onclick="closeDialog()">
                 <header onclick="bubblingPrevention(event)">
-                    <p id="dialogHeadline"></p>
-                    <button class="close-button" onclick="closeDialog()">
+                    <h2 id="dialogHeadline"></h2>
+                    <button
+                        class="close-button"
+                        onclick="closeDialog()"
+                        aria-label="Close image window"
+                    >
                         <img
                             class="close-button-image"
                             src="./assets/icon/close-icon.svg"
@@ -48,6 +47,7 @@
                     <button
                         class="previous-button"
                         onclick="showPreviousImage()"
+                        aria-label="Show previous image"
                     >
                         <img
                             id="previousButton"
@@ -57,7 +57,11 @@
                         />
                     </button>
                     <p id="dialogPagenumber"></p>
-                    <button class="next-button" onclick="showNextImage()">
+                    <button
+                        class="next-button"
+                        onclick="showNextImage()"
+                        aria-label="Show next image"
+                    >
                         <img
                             id="nextButton"
                             class="next-button-image"

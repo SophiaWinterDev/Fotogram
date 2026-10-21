@@ -1,7 +1,13 @@
+/* #region global */
 * {
     margin: 0;
     box-sizing: border-box;
     font-family: "Figtree";
+}
+
+*:focus-visible {
+    outline: 3px solid rgb(8, 4, 17);
+    outline-offset: 8px;
 }
 
 body {
@@ -17,9 +23,10 @@ body > footer {
     background-color: var(--secondary-color);
     padding: 20px 140px;
 }
+/* #endregion */
 
 /* #region header*/
-body > header > div {
+body > header {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -103,7 +110,7 @@ dialog > header {
     padding: 56px 64px;
 }
 
-dialog > header > p {
+dialog > header > h2 {
     font-size: clamp(16px, 2vw, 24px);
     font-weight: 700;
     color: var(--primary-color);
@@ -202,6 +209,7 @@ body > footer > p {
 }
 /* #endregion */
 
+/* #region media queries */
 @media screen and (min-width: 1441px) {
     body > header {
         padding: 20px max(140px, calc(50% - 720px));
@@ -218,7 +226,7 @@ body > footer > p {
 
     dialog {
         height: 90dvh;
-        width: 80dvw;
+        width: 60dvw;
     }
 
     .image-section {
@@ -233,7 +241,7 @@ body > footer > p {
 }
 
 @media screen and (max-width: 999px) {
-    body > header > div {
+    body > header {
         justify-content: center;
     }
 
@@ -318,3 +326,4 @@ body > footer > p {
         width: 24px;
     }
 }
+/* #endregion */
