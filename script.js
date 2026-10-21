@@ -106,6 +106,10 @@ function showNextImage() {
     }
 }
 
+function bubblingPrevention(event) {
+    event.stopPropagation();
+}
+
 // #region get HTML and text for functions
 function getHTMLForButton(index) {
     return `
