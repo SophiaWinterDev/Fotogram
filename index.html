@@ -31,7 +31,7 @@
             <dialog id="galleryDialog">
                 <header>
                     <p id="dialogHeadline"></p>
-                    <button class="close-button">
+                    <button class="close-button" onclick="closeDialog()">
                         <img
                             class="close-button-image"
                             src="./assets/icon/close-icon.svg"
@@ -41,16 +41,18 @@
                 </header>
                 <section id="imageSection" class="image-section"></section>
                 <footer>
-                    <button class="previous-button">
+                    <button class="previous-button" onclick="showPreviousImage()">
                         <img
+                            id="previousButton"
                             class="previous-button-image"
                             src="./assets/icon/arrow-icon.svg"
                             alt="Arrow Left"
                         />
                     </button>
                     <p id="dialogPagenumber"></p>
-                    <button class="next-button">
+                    <button class="next-button" onclick="showNextImage()">
                         <img
+                            id="nextButton"
                             class="next-button-image"
                             src="./assets/icon/arrow-icon.svg"
                             alt="Arrow Right"

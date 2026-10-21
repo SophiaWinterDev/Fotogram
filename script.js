@@ -46,6 +46,13 @@ const IMAGES = [
 ];
 
 const GALLERY_WRAPPER_REF = document.getElementById("galleryWrapper");
+const GALLERY_DIALOG_REF = document.getElementById("galleryDialog");
+const DIALOG_HEADLINE_REF = document.getElementById("dialogHeadline");
+const DIALOG_PAGENUMBER_REF = document.getElementById("dialogPagenumber");
+const IMAGE_SECTION_REF = document.getElementById("imageSection");
+const PREVIOUS_BUTTON_REF = document.getElementById("previousButton");
+const NEXT_BUTTON_REF = document.getElementById("nextButton");
+let currentIndex = 0;
 
 function init() {
     renderGallery();
@@ -58,15 +65,43 @@ function renderGallery() {
 }
 
 function openDialog(index) {
-    const GALLERY_DIALOG_REF = document.getElementById("galleryDialog");
-    let dialogHeadlineRef = document.getElementById("dialogHeadline");
-    let dialogPagenumberRef = document.getElementById("dialogPagenumber");
-    let imageSectionRef = document.getElementById("imageSection");
-
-    dialogHeadlineRef.innerText = getTextForDialogHeadline(index);
-    imageSectionRef.innerHTML = getHTMLForImageSection(index);
-    dialogPagenumberRef.innerText = getTextForDialogPagenumber(index);
+    currentIndex = index;
+    DIALOG_HEADLINE_REF.innerText = getTextForDialogHeadline(index);
+    IMAGE_SECTION_REF.innerHTML = getHTMLForImageSection(index);
+    DIALOG_PAGENUMBER_REF.innerText = getTextForDialogPagenumber(index);
     GALLERY_DIALOG_REF.showModal();
+}
+
+function closeDialog() {
+    GALLERY_DIALOG_REF.close();
+}
+
+function showPreviousImage() {
+    NEXT_BUTTON_REF.classList.remove("inactive-button");
+    if (currentIndex > 0) {
+        currentIndex -= 1;
+        DIALOG_HEADLINE_REF.innerText = getTextForDialogHeadline(currentIndex);
+        IMAGE_SECTION_REF.innerHTML = getHTMLForImageSection(currentIndex);
+        DIALOG_PAGENUMBER_REF.innerText =
+            getTextForDialogPagenumber(currentIndex);
+    }
+    if (currentIndex <= 0) {
+        PREVIOUS_BUTTON_REF.classList.add("inactive-button");
+    }
+}
+
+function showNextImage() {
+    PREVIOUS_BUTTON_REF.classList.remove("inactive-button");
+    if (currentIndex < 10) {
+        currentIndex += 1;
+        DIALOG_HEADLINE_REF.innerText = getTextForDialogHeadline(currentIndex);
+        IMAGE_SECTION_REF.innerHTML = getHTMLForImageSection(currentIndex);
+        DIALOG_PAGENUMBER_REF.innerText =
+            getTextForDialogPagenumber(currentIndex);
+    }
+    if (currentIndex >= 10) {
+        NEXT_BUTTON_REF.classList.add("inactive-button");
+    }
 }
 
 // #region get HTML and text for functions
