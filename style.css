@@ -71,6 +71,75 @@ button > img {
 dialog {
     background-color: var(--primary-bg-color);
     padding: 56px 64px;
+    margin: auto;
+    border: none;
+    border-radius: 40px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+dialog > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 56px;
+}
+
+dialog > header > p {
+    font-size: clamp(16px, 2vw, 24px);
+    font-weight: 700;
+}
+
+.close-button,
+.close-button-image {
+    width: 32px;
+    height: 32px;
+}
+
+.close-button-image:hover {
+    background-color: rgba(18, 70, 88, 1);
+}
+
+.close-button-image:active {
+    background-color: rgba(13, 50, 64, 1);
+}
+
+.image-section > img {
+    width: 550px;
+}
+
+dialog > footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-top: 56px;
+}
+
+.previous-button,
+.previous-button-image,
+.next-button,
+.next-button-image {
+    width: 64px;
+    height: 64px;
+}
+
+.previous-button-image,
+.next-button-image {
+    background-color: rgba(253, 91, 79, 0.1);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.previous-button-image {
+    transform: rotate(180deg);
+}
+
+.previous-button-image:hover,
+.next-button-image:hover {
+    background-color: rgba(253, 91, 79, 0.2);
 }
 /* #endregion */
 
