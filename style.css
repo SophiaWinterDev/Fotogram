@@ -205,7 +205,8 @@ body > footer > div {
 
 body > footer > p {
     font-size: clamp(16px, 2vw, 18px);
-    color: rgba(115, 90, 170, 0.8);
+    color: rgba(115, 90, 170, 1);
+    font-weight: 700;
 }
 /* #endregion */
 
