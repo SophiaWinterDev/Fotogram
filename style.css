@@ -72,7 +72,6 @@ button {
     width: 150px;
     height: 150px;
     cursor: pointer;
-    border-radius: 50%;
 }
 
 li > button > img {
@@ -164,6 +163,11 @@ dialog > footer {
 .next-button-image {
     width: 64px;
     height: 64px;
+}
+
+.previous-button,
+.next-button {
+    cursor: default;
 }
 
 .previous-button-image,
