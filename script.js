@@ -57,6 +57,7 @@ const NEXT_BUTTON_REF = document.getElementById("nextButton");
 const FIRST_IMAGE_INDEX = 0;
 const LAST_IMAGE_INDEX = IMAGES.length - 1;
 let currentIndex = 0;
+let scrollPosition = 0;
 // #endregion
 
 function init() {
@@ -76,11 +77,14 @@ function openDialog(index) {
     DIALOG_HEADLINE_REF.innerText = getTextForDialogHeadline(index);
     IMAGE_SECTION_REF.innerHTML = getHTMLForImageSection(index);
     DIALOG_PAGENUMBER_REF.innerText = getTextForDialogPagenumber(index);
+    checkImageIndex();
     GALLERY_DIALOG_REF.showModal();
+    lockScroll();
 }
 
 function closeDialog() {
     GALLERY_DIALOG_REF.close();
+    unlockScroll();
 }
 
 function showPreviousImage() {
@@ -92,9 +96,7 @@ function showPreviousImage() {
         DIALOG_PAGENUMBER_REF.innerText =
             getTextForDialogPagenumber(currentIndex);
     }
-    if (currentIndex <= FIRST_IMAGE_INDEX) {
-        PREVIOUS_BUTTON_REF.classList.add("inactive-button");
-    }
+    checkImageIndex();
 }
 
 function showNextImage() {
@@ -106,6 +108,13 @@ function showNextImage() {
         DIALOG_PAGENUMBER_REF.innerText =
             getTextForDialogPagenumber(currentIndex);
     }
+    checkImageIndex();
+}
+
+function checkImageIndex() {
+    if (currentIndex <= FIRST_IMAGE_INDEX) {
+        PREVIOUS_BUTTON_REF.classList.add("inactive-button");
+    }
     if (currentIndex >= LAST_IMAGE_INDEX) {
         NEXT_BUTTON_REF.classList.add("inactive-button");
     }
@@ -115,25 +124,16 @@ function bubblingPrevention(event) {
     event.stopPropagation();
 }
 
-// #region get HTML and text for functions
-function getHTMLForButton(index) {
-    return `
-    <li>
-        <button id="galleryButton${index}" onclick="openDialog(${index})">
-            <img src="./assets/img/${IMAGES[index].src}" alt="${IMAGES[index].alt}" />
-        </button>
-    </li>`;
+function lockScroll() {
+    scrollPosition = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = "100%";
 }
 
-function getTextForDialogHeadline(index) {
-    return `${IMAGES[index].src}`;
+function unlockScroll() {
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+    window.scrollTo(0, scrollPosition);
 }
-
-function getHTMLForImageSection(index) {
-    return `<img src="./assets/img/${IMAGES[index].src}" alt="${IMAGES[index].alt}" />`;
-}
-
-function getTextForDialogPagenumber(index) {
-    return `${index + 1}/${IMAGES.length}`;
-}
-// #endregion

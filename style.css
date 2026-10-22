@@ -71,6 +71,8 @@ button {
     all: unset;
     width: 150px;
     height: 150px;
+    cursor: pointer;
+    border-radius: 50%;
 }
 
 li > button > img {
@@ -151,6 +153,11 @@ dialog > footer {
     font-weight: 700;
 }
 
+.pagenumber {
+    min-width: 50px;
+    text-align: center;
+}
+
 .previous-button,
 .previous-button-image,
 .next-button,
@@ -182,6 +189,7 @@ dialog > footer {
 
 .inactive-button:hover {
     background-color: rgba(255, 255, 255, 0);
+    cursor: default;
 }
 /* #endregion */
 
