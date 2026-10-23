@@ -160,6 +160,7 @@ function stopDiashow() {
     NEXT_BUTTON_IMG_REF.classList.remove("inactive-button");
     PREVIOUS_BUTTON_REF.disabled = false;
     NEXT_BUTTON_REF.disabled = false;
+    checkImageIndex();
 }
 
 function autoplayNextImage() {
