@@ -53,6 +53,8 @@ const DIALOG_PAGENUMBER_REF = document.getElementById("dialogPagenumber");
 const IMAGE_SECTION_REF = document.getElementById("imageSection");
 const PREVIOUS_BUTTON_REF = document.getElementById("previousButton");
 const NEXT_BUTTON_REF = document.getElementById("nextButton");
+const PREVIOUS_BUTTON_IMG_REF = document.getElementById("previousButtonImage");
+const NEXT_BUTTON_IMG_REF = document.getElementById("nextButtonImage");
 const DIASHOW_BUTTON_REF = document.getElementById("diashowButton");
 
 const FIRST_IMAGE_INDEX = 0;
@@ -73,13 +75,14 @@ function renderGallery() {
 }
 
 function openDialog(index) {
-    NEXT_BUTTON_REF.classList.remove("inactive-button");
-    PREVIOUS_BUTTON_REF.classList.remove("inactive-button");
+    NEXT_BUTTON_IMG_REF.classList.remove("inactive-button");
+    PREVIOUS_BUTTON_IMG_REF.classList.remove("inactive-button");
     currentIndex = index;
     DIALOG_HEADLINE_REF.innerText = getTextForDialogHeadline(index);
     IMAGE_SECTION_REF.innerHTML = getHTMLForImageSection(index);
     DIALOG_PAGENUMBER_REF.innerText = getTextForDialogPagenumber(index);
     checkImageIndex();
+    stopDiashow();
     GALLERY_DIALOG_REF.showModal();
     lockScroll();
 }
@@ -90,35 +93,35 @@ function closeDialog() {
 }
 
 function showPreviousImage() {
-    NEXT_BUTTON_REF.classList.remove("inactive-button");
+    NEXT_BUTTON_IMG_REF.classList.remove("inactive-button");
     if (currentIndex > FIRST_IMAGE_INDEX) {
         currentIndex -= 1;
-        DIALOG_HEADLINE_REF.innerText = getTextForDialogHeadline(currentIndex);
-        IMAGE_SECTION_REF.innerHTML = getHTMLForImageSection(currentIndex);
-        DIALOG_PAGENUMBER_REF.innerText =
-            getTextForDialogPagenumber(currentIndex);
+        updateImage();
     }
     checkImageIndex();
 }
 
 function showNextImage() {
-    PREVIOUS_BUTTON_REF.classList.remove("inactive-button");
+    PREVIOUS_BUTTON_IMG_REF.classList.remove("inactive-button");
     if (currentIndex < LAST_IMAGE_INDEX) {
         currentIndex += 1;
-        DIALOG_HEADLINE_REF.innerText = getTextForDialogHeadline(currentIndex);
-        IMAGE_SECTION_REF.innerHTML = getHTMLForImageSection(currentIndex);
-        DIALOG_PAGENUMBER_REF.innerText =
-            getTextForDialogPagenumber(currentIndex);
+        updateImage();
     }
     checkImageIndex();
 }
 
+function updateImage() {
+    DIALOG_HEADLINE_REF.innerText = getTextForDialogHeadline(currentIndex);
+    IMAGE_SECTION_REF.innerHTML = getHTMLForImageSection(currentIndex);
+    DIALOG_PAGENUMBER_REF.innerText = getTextForDialogPagenumber(currentIndex);
+}
+
 function checkImageIndex() {
     if (currentIndex <= FIRST_IMAGE_INDEX) {
-        PREVIOUS_BUTTON_REF.classList.add("inactive-button");
+        PREVIOUS_BUTTON_IMG_REF.classList.add("inactive-button");
     }
     if (currentIndex >= LAST_IMAGE_INDEX) {
-        NEXT_BUTTON_REF.classList.add("inactive-button");
+        NEXT_BUTTON_IMG_REF.classList.add("inactive-button");
     }
 }
 
@@ -142,13 +145,32 @@ function unlockScroll() {
 
 function toggleDiashow() {
     if (diashowInterval === null) {
-        diashowInterval = setInterval(showNextImage, 5000);
+        diashowInterval = setInterval(autoplayNextImage, 1000);
         DIASHOW_BUTTON_REF.innerText = "⏸ PAUSE DIASHOW";
     } else {
-        clearInterval(diashowInterval);
-        diashowInterval = null;
-        DIASHOW_BUTTON_REF.innerText = "▶ PLAY DIASHOW";
+        stopDiashow();
     }
 }
 
+function stopDiashow() {
+    clearInterval(diashowInterval);
+    diashowInterval = null;
+    DIASHOW_BUTTON_REF.innerText = "▶ PLAY DIASHOW";
+    PREVIOUS_BUTTON_IMG_REF.classList.remove("inactive-button");
+    NEXT_BUTTON_IMG_REF.classList.remove("inactive-button");
+    PREVIOUS_BUTTON_REF.disabled = false;
+    NEXT_BUTTON_REF.disabled = false;
+}
 
+function autoplayNextImage() {
+    PREVIOUS_BUTTON_REF.disabled = true;
+    NEXT_BUTTON_REF.disabled = true;
+    PREVIOUS_BUTTON_IMG_REF.classList.add("inactive-button");
+    NEXT_BUTTON_IMG_REF.classList.add("inactive-button");
+    if (currentIndex < LAST_IMAGE_INDEX) {
+        currentIndex += 1;
+    } else {
+        currentIndex = 0;
+    }
+    updateImage();
+}

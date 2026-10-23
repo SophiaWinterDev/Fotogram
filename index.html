@@ -47,12 +47,13 @@
                 <footer onclick="bubblingPrevention(event)">
                     <div class="switch-image-div">
                         <button
+                            id="previousButton"
                             class="previous-button"
                             onclick="showPreviousImage()"
                             aria-label="Show previous image"
                         >
                             <img
-                                id="previousButton"
+                                id="previousButtonImage"
                                 class="previous-button-image"
                                 src="./assets/icon/arrow-icon.svg"
                                 alt="Arrow Left"
@@ -60,19 +61,26 @@
                         </button>
                         <p id="dialogPagenumber" class="pagenumber"></p>
                         <button
+                            id="nextButton"
                             class="next-button"
                             onclick="showNextImage()"
                             aria-label="Show next image"
                         >
                             <img
-                                id="nextButton"
+                                id="nextButtonImage"
                                 class="next-button-image"
                                 src="./assets/icon/arrow-icon.svg"
                                 alt="Arrow Right"
                             />
                         </button>
                     </div>
-                    <button id="diashowButton" class="diashow-button" onclick="toggleDiashow()">▶ PLAY DIASHOW</button>
+                    <button
+                        id="diashowButton"
+                        class="diashow-button"
+                        onclick="toggleDiashow()"
+                    >
+                        ▶ PLAY DIASHOW
+                    </button>
                 </footer>
             </dialog>
         </main>
