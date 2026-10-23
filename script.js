@@ -3,46 +3,57 @@ const IMAGES = [
     {
         src: "aurora.jpg",
         alt: "Northern lights over a snowy mountain landscape",
+        category: "calm/clear",
     },
     {
         src: "fog.jpg",
         alt: "Small wooden cabin by a misty lake surrounded by autumn forest",
+        category: "mixed",
     },
     {
         src: "frost.jpg",
         alt: "Small white hut under a bare tree in a frost-covered field",
+        category: "calm/clear",
     },
     {
         src: "hail.jpg",
         alt: "Large hailstones scattered across green grass after a storm",
+        category: "severe/stormy",
     },
     {
         src: "rain.jpg",
         alt: "Heavy rain shower falling from dark storm clouds over a rural landscape",
+        category: "severe/stormy",
     },
     {
         src: "rainbow.jpg",
         alt: "Bright rainbow appearing over a green pine forest",
+        category: "mixed",
     },
     {
         src: "snow.jpg",
         alt: "Sunlight breaking through snow-covered trees in a forest",
+        category: "calm/clear",
     },
     {
         src: "storm.jpg",
         alt: "A massive, dark storm front rolling over green fields",
+        category: "severe/stormy",
     },
     {
         src: "sunshine.jpg",
         alt: "Bright sunshine illuminating a green, rolling countryside",
+        category: "calm/clear",
     },
     {
         src: "thunderstorm.jpg",
         alt: "Bright lightning bolts striking from dark clouds over a city at night",
+        category: "severe/stormy",
     },
     {
         src: "tornado.jpg",
         alt: "A small tornado funnel extending from dark clouds",
+        category: "severe/stormy",
     },
 ];
 
@@ -56,6 +67,10 @@ const NEXT_BUTTON_REF = document.getElementById("nextButton");
 const PREVIOUS_BUTTON_IMG_REF = document.getElementById("previousButtonImage");
 const NEXT_BUTTON_IMG_REF = document.getElementById("nextButtonImage");
 const DIASHOW_BUTTON_REF = document.getElementById("diashowButton");
+const CATEGORY_ALL_REF = document.getElementById("categoryAll");
+const CATEGORY_CALM_REF = document.getElementById("categoryCalm");
+const CATEGORY_MIXED_REF = document.getElementById("categoryMixed");
+const CATEGORY_SEVERE_REF = document.getElementById("categorySevere");
 
 const FIRST_IMAGE_INDEX = 0;
 const LAST_IMAGE_INDEX = IMAGES.length - 1;
@@ -74,6 +89,7 @@ function renderGallery() {
     }
 }
 
+// #region dialog
 function openDialog(index) {
     NEXT_BUTTON_IMG_REF.classList.remove("inactive-button");
     PREVIOUS_BUTTON_IMG_REF.classList.remove("inactive-button");
@@ -142,7 +158,9 @@ function unlockScroll() {
     document.body.style.width = "";
     window.scrollTo(0, scrollPosition);
 }
+// #endregion
 
+// #region diashow
 function toggleDiashow() {
     if (diashowInterval === null) {
         diashowInterval = setInterval(autoplayNextImage, 1000);
@@ -175,3 +193,15 @@ function autoplayNextImage() {
     }
     updateImage();
 }
+// #endregion
+
+// #region categories
+function chooseCategory(clickedButton) {
+    CATEGORY_ALL_REF.classList.remove("active-button");
+    CATEGORY_CALM_REF.classList.remove("active-button");
+    CATEGORY_MIXED_REF.classList.remove("active-button");
+    CATEGORY_SEVERE_REF.classList.remove("active-button");
+
+    clickedButton.classList.add("active-button")
+}
+// #endregion

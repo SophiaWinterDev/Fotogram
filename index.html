@@ -23,6 +23,12 @@
         </header>
         <main>
             <h1>My personal photo album</h1>
+            <div class="categories">
+                <button id="categoryAll" class="active-button" onclick="chooseCategory(this)">All</button>
+                <button id="categoryCalm" onclick="chooseCategory(this)">Calm / Clear</button>
+                <button id="categoryMixed" onclick="chooseCategory(this)">Mixed</button>
+                <button id="categorySevere" onclick="chooseCategory(this)">Severe / Stormy</button>
+            </div>
             <ul id="galleryWrapper" class="gallery-wrapper"></ul>
             <dialog id="galleryDialog" onclick="closeDialog()">
                 <header onclick="bubblingPrevention(event)">

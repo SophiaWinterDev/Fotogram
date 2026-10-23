@@ -57,6 +57,34 @@ h1 {
     text-align: center;
 }
 
+.categories {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.categories button {
+    text-align: center;
+    width: 170px;
+    height: 30px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 700;
+}
+
+.categories button:hover {
+    background-color: rgb(28, 17, 54, 1);
+    color: var(--primary-color);
+}
+
+.active-button {
+    background-color: rgb(28, 17, 54, 1);
+    color: var(--primary-color);
+}
+
 .gallery-wrapper {
     display: flex;
     justify-content: center;
@@ -69,9 +97,12 @@ h1 {
 
 button {
     all: unset;
+    cursor: pointer;
+}
+
+li > button {
     width: 150px;
     height: 150px;
-    cursor: pointer;
 }
 
 li > button > img {
