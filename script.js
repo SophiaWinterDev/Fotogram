@@ -53,11 +53,13 @@ const DIALOG_PAGENUMBER_REF = document.getElementById("dialogPagenumber");
 const IMAGE_SECTION_REF = document.getElementById("imageSection");
 const PREVIOUS_BUTTON_REF = document.getElementById("previousButton");
 const NEXT_BUTTON_REF = document.getElementById("nextButton");
+const DIASHOW_BUTTON_REF = document.getElementById("diashowButton");
 
 const FIRST_IMAGE_INDEX = 0;
 const LAST_IMAGE_INDEX = IMAGES.length - 1;
 let currentIndex = 0;
 let scrollPosition = 0;
+let diashowInterval = null;
 // #endregion
 
 function init() {
@@ -137,3 +139,16 @@ function unlockScroll() {
     document.body.style.width = "";
     window.scrollTo(0, scrollPosition);
 }
+
+function toggleDiashow() {
+    if (diashowInterval === null) {
+        diashowInterval = setInterval(showNextImage, 5000);
+        DIASHOW_BUTTON_REF.innerText = "⏸ PAUSE DIASHOW";
+    } else {
+        clearInterval(diashowInterval);
+        diashowInterval = null;
+        DIASHOW_BUTTON_REF.innerText = "▶ PLAY DIASHOW";
+    }
+}
+
+

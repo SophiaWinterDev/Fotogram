@@ -144,12 +144,20 @@ dialog > header > h2 {
 
 dialog > footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
     padding: 56px 64px;
     color: var(--primary-color);
     font-weight: 700;
+}
+
+.switch-image-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
 }
 
 .pagenumber {
@@ -175,6 +183,7 @@ dialog > footer {
     background-color: rgb(115, 90, 170, 0.2);
     border-radius: 50%;
     padding: 20px;
+    cursor: pointer;
 }
 
 .previous-button-image {
@@ -182,8 +191,10 @@ dialog > footer {
 }
 
 .previous-button-image:hover,
-.next-button-image:hover {
+.next-button-image:hover,
+.diashow-button:hover {
     background-color: rgb(115, 90, 170, 0.5);
+    color: var(--secondary-color);
 }
 
 .inactive-button {
@@ -194,6 +205,14 @@ dialog > footer {
 .inactive-button:hover {
     background-color: rgba(255, 255, 255, 0);
     cursor: default;
+}
+
+.diashow-button {
+    width: 190px;
+    height: 70px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: rgb(115, 90, 170, 0.2);
 }
 /* #endregion */
 

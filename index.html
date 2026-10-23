@@ -45,31 +45,34 @@
                     onclick="bubblingPrevention(event)"
                 ></section>
                 <footer onclick="bubblingPrevention(event)">
-                    <button
-                        class="previous-button"
-                        onclick="showPreviousImage()"
-                        aria-label="Show previous image"
-                    >
-                        <img
-                            id="previousButton"
-                            class="previous-button-image"
-                            src="./assets/icon/arrow-icon.svg"
-                            alt="Arrow Left"
-                        />
-                    </button>
-                    <p id="dialogPagenumber" class="pagenumber"></p>
-                    <button
-                        class="next-button"
-                        onclick="showNextImage()"
-                        aria-label="Show next image"
-                    >
-                        <img
-                            id="nextButton"
-                            class="next-button-image"
-                            src="./assets/icon/arrow-icon.svg"
-                            alt="Arrow Right"
-                        />
-                    </button>
+                    <div class="switch-image-div">
+                        <button
+                            class="previous-button"
+                            onclick="showPreviousImage()"
+                            aria-label="Show previous image"
+                        >
+                            <img
+                                id="previousButton"
+                                class="previous-button-image"
+                                src="./assets/icon/arrow-icon.svg"
+                                alt="Arrow Left"
+                            />
+                        </button>
+                        <p id="dialogPagenumber" class="pagenumber"></p>
+                        <button
+                            class="next-button"
+                            onclick="showNextImage()"
+                            aria-label="Show next image"
+                        >
+                            <img
+                                id="nextButton"
+                                class="next-button-image"
+                                src="./assets/icon/arrow-icon.svg"
+                                alt="Arrow Right"
+                            />
+                        </button>
+                    </div>
+                    <button id="diashowButton" class="diashow-button" onclick="toggleDiashow()">▶ PLAY DIASHOW</button>
                 </footer>
             </dialog>
         </main>
