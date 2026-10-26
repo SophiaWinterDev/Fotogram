@@ -76,7 +76,7 @@ const FIRST_IMAGE_INDEX = 0;
 let currentIndex = 0;
 let scrollPosition = 0;
 let diashowInterval = null;
-let currentImages = IMAGES;
+let currentImages = [];
 // #endregion
 
 function init() {
