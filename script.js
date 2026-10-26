@@ -73,10 +73,10 @@ const CATEGORY_MIXED_REF = document.getElementById("categoryMixed");
 const CATEGORY_SEVERE_REF = document.getElementById("categorySevere");
 
 const FIRST_IMAGE_INDEX = 0;
-const LAST_IMAGE_INDEX = IMAGES.length - 1;
 let currentIndex = 0;
 let scrollPosition = 0;
 let diashowInterval = null;
+let currentImages = IMAGES;
 // #endregion
 
 function init() {
@@ -85,10 +85,14 @@ function init() {
 
 function renderGallery(category) {
     GALLERY_WRAPPER_REF.innerHTML = "";
+    currentImages = [];
     for (let index = 0; index < IMAGES.length; index++) {
         if (category === "all" || IMAGES[index].category === category) {
-            GALLERY_WRAPPER_REF.innerHTML += getHTMLForButton(index);
+            currentImages.push(IMAGES[index]);
         }
+    }
+    for (let index = 0; index < currentImages.length; index++) {
+        GALLERY_WRAPPER_REF.innerHTML += getHTMLForButton(index);
     }
 }
 
@@ -122,7 +126,7 @@ function showPreviousImage() {
 
 function showNextImage() {
     PREVIOUS_BUTTON_IMG_REF.classList.remove("inactive-button");
-    if (currentIndex < LAST_IMAGE_INDEX) {
+    if (currentIndex < currentImages.length - 1) {
         currentIndex += 1;
         updateImage();
     }
@@ -139,7 +143,7 @@ function checkImageIndex() {
     if (currentIndex <= FIRST_IMAGE_INDEX) {
         PREVIOUS_BUTTON_IMG_REF.classList.add("inactive-button");
     }
-    if (currentIndex >= LAST_IMAGE_INDEX) {
+    if (currentIndex >= currentImages.length - 1) {
         NEXT_BUTTON_IMG_REF.classList.add("inactive-button");
     }
 }
@@ -166,7 +170,7 @@ function unlockScroll() {
 // #region diashow
 function toggleDiashow() {
     if (diashowInterval === null) {
-        diashowInterval = setInterval(autoplayNextImage, 1000);
+        diashowInterval = setInterval(autoplayNextImage, 5000);
         DIASHOW_BUTTON_REF.innerText = "⏸ PAUSE DIASHOW";
     } else {
         stopDiashow();
@@ -189,7 +193,7 @@ function autoplayNextImage() {
     NEXT_BUTTON_REF.disabled = true;
     PREVIOUS_BUTTON_IMG_REF.classList.add("inactive-button");
     NEXT_BUTTON_IMG_REF.classList.add("inactive-button");
-    if (currentIndex < LAST_IMAGE_INDEX) {
+    if (currentIndex < currentImages.length - 1) {
         currentIndex += 1;
     } else {
         currentIndex = 0;
