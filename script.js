@@ -80,12 +80,15 @@ let diashowInterval = null;
 // #endregion
 
 function init() {
-    renderGallery();
+    renderGallery("all");
 }
 
-function renderGallery() {
+function renderGallery(category) {
+    GALLERY_WRAPPER_REF.innerHTML = "";
     for (let index = 0; index < IMAGES.length; index++) {
-        GALLERY_WRAPPER_REF.innerHTML += getHTMLForButton(index);
+        if (category === "all" || IMAGES[index].category === category) {
+            GALLERY_WRAPPER_REF.innerHTML += getHTMLForButton(index);
+        }
     }
 }
 
@@ -196,12 +199,13 @@ function autoplayNextImage() {
 // #endregion
 
 // #region categories
-function chooseCategory(clickedButton) {
+function chooseCategory(clickedButton, category) {
     CATEGORY_ALL_REF.classList.remove("active-button");
     CATEGORY_CALM_REF.classList.remove("active-button");
     CATEGORY_MIXED_REF.classList.remove("active-button");
     CATEGORY_SEVERE_REF.classList.remove("active-button");
 
-    clickedButton.classList.add("active-button")
+    clickedButton.classList.add("active-button");
+    renderGallery(category);
 }
 // #endregion
