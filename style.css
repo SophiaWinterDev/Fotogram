@@ -44,7 +44,7 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: top;
     align-items: center;
     gap: 80px;
     padding: 80px 140px;
@@ -103,6 +103,7 @@ button {
 li > button {
     width: 150px;
     height: 150px;
+    display: block;
 }
 
 li > button > img {
