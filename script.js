@@ -170,7 +170,7 @@ function unlockScroll() {
 // #region diashow
 function toggleDiashow() {
     if (diashowInterval === null) {
-        diashowInterval = setInterval(autoplayNextImage, 5000);
+        diashowInterval = setInterval(autoplayNextImage, 3000);
         DIASHOW_BUTTON_REF.innerText = "⏸ PAUSE DIASHOW";
     } else {
         stopDiashow();
